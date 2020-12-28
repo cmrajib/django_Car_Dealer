@@ -1,0 +1,49 @@
+
+
+ 1. pip install django-ckeditor
+	
+	settings.py
+
+	INSTALLED_APPS = (
+     	...
+   	 'ckeditor',
+	)
+
+2. pip install django-multiselectfield
+	
+
+3. pip install django-cleanup
+	settings.py
+
+	INSTALLED_APPS = (
+     	...
+   	 'django_cleanup', # should go after your apps
+	)
+
+
+
+4. pip install django-allauth
+	---This is for facebook login
+	
+
+	In setting, App Install 
+	
+	INSTALLED_APPS = [
+    		'django.contrib.sites',
+    		'allauth.account',
+    		'allauth.socialaccount',
+		# providers
+    		'allauth.socialaccount.providers.facebook',
+    		'allauth.socialaccount.providers.google',	
+    	]
+    
+		At the end of the page add
+
+			SITE_ID = 1
+
+		In the project urls.py add
+			path('socialaccounts/', include('allauth.urls')),
+
+		run 
+			python manage.py migrate
+
